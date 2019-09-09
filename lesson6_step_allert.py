@@ -9,6 +9,7 @@ def calc(x):
 try:
     browser = webdriver.Chrome()
     browser.get(link)
+    browser.implicitly_wait(10)
     browser.find_element_by_class_name('btn-primary').click()
     confirm = browser.switch_to.alert
     confirm.accept()
