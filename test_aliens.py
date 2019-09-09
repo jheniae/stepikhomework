@@ -16,9 +16,9 @@ def browser():
 def test_aliens_messages(browser, page):
     link = f'https://stepik.org/lesson/{page}/step/1'
     browser.get(link)
-    browser.implicitly_wait(10)
+    browser.implicitly_wait(2)
     browser.find_element_by_css_selector('.attempt-wrapper .autoresize-textarea, .attempt-wrapper .textarea').send_keys(str(math.log(int(time.time()))))
     browser.find_element_by_class_name('submit-submission').click()
     cor = browser.find_element_by_xpath('//pre').text
     assert cor == 'Correct!', \
-        f'Wrong answer{cor}'
+        f'Wrong answer {cor}'
